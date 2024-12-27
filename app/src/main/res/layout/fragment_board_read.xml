@@ -199,7 +199,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/background_textfield_gray"
                 android:hint="댓글을 입력하세요"
-                android:imeOptions="actionSend"
                 android:inputType="text"
                 android:maxLines="1"
                 android:padding="8dp"
