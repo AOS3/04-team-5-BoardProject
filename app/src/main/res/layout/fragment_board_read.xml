@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="boardReadViewModel"
+            type="com.lion.boardproject.viewmodel.BoardReadViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_board_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:transitionGroup="true">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/toolbarBoardRead"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:minHeight="?attr/actionBarSize"
+                        android:theme="?attr/actionBarTheme"
+                        app:menu="@menu/menu_board_read_toolbar"
+                        app:navigationIcon="@drawable/arrow_back_24px"
+                        app:onNavigationClickBoardRead="@{boardReadViewModel.boardReadFragment}"
+                        app:title="글 읽기" />
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/textFieldBoardReadTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="제목"
+                                app:startIconDrawable="@drawable/subject_24px">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:singleLine="true"
+                                    android:text="@{boardReadViewModel.textFieldBoardReadTitleText}"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                    android:textColor="@color/black" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/textFieldBoardReadNickName"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:hint="작성자"
+                                app:startIconDrawable="@drawable/person_add_24px">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:singleLine="true"
+                                    android:text="@{boardReadViewModel.textFieldBoardReadNickName}"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                    android:textColor="@color/black" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/textFieldBoardReadType"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:hint="게시판"
+                                app:startIconDrawable="@drawable/format_list_bulleted_24px">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:singleLine="true"
+                                    android:text="@{boardReadViewModel.textFieldBoardReadTypeText}"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                    android:textColor="@color/black" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/textFieldBoardReadText"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:hint="내용"
+                                app:startIconDrawable="@drawable/description_24px">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:text="@{boardReadViewModel.textFieldBoardReadTextText}"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                    android:textColor="@color/black" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/imageViewBoardRead"
+                                android:layout_width="match_parent"
+                                android:layout_height="320dp"
+                                android:layout_marginTop="10dp"
+                                android:adjustViewBounds="true"
+                                android:background="#C7C7C7"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/panorama_24px" />
+
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_board_reply_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="26dp"
+                    android:text="@{boardReadViewModel.replyCountText}"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_board_content"
+                    tools:text="댓글 5" />
+
+                <!-- 댓글 목록 RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_board_reply_list"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="140dp"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="@{boardReadViewModel.isEmptyList ? View.GONE : View.VISIBLE}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_board_reply_label"
+                    app:replyItems="@{boardReadViewModel.replyList}"
+                    tools:listitem="@layout/item_reply_list" />
+
+                <!-- 댓글 없을 때 보여줄 빈 화면 -->
+                <include
+                    android:id="@+id/layout_reply_empty"
+                    layout="@layout/layout_reply_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="140dp"
+                    android:visibility="@{boardReadViewModel.isEmptyList ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_board_reply_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- 댓글 입력 영역 -->
+        <LinearLayout
+            android:id="@+id/ll_reply_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="10dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <EditText
+                android:id="@+id/et_board_reply_field"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_textfield_gray"
+                android:hint="댓글을 입력하세요"
+                android:imeOptions="actionSend"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:text="@={boardReadViewModel.replyInput}" />
+
+            <!-- 댓글 작성 버튼 -->
+            <Button
+                android:id="@+id/btn_reply_submit"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:onClick="@{() -> boardReadViewModel.onSubmitClick()}"
+                android:text="작성" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

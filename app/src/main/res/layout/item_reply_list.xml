@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:transitionGroup="true">
+
+        <TextView
+            android:id="@+id/tv_reply_user_nick_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/btn_reply_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="사용자 닉네임사용자 닉네임사용자 닉네임사용자 닉네임사용자 닉네임사용자 닉네임" />
+
+        <ImageButton
+            android:id="@+id/btn_reply_menu"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more_vert_24px"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/tv_reply_user_nick_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_reply_user_nick_name" />
+
+        <TextView
+            android:id="@+id/tv_reply_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="4dp"
+            android:textColor="#808080"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_reply_user_nick_name"
+            tools:text="댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다." />
+
+        <TextView
+            android:id="@+id/tv_reply_create_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="#A2A3BB"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="@id/tv_reply_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_reply_content"
+            tools:text="방금 전" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:dividerColor="#A2A3BB"
+            app:dividerInsetEnd="18dp"
+            app:dividerInsetStart="18dp"
+            app:dividerThickness="0.5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_reply_create_at" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

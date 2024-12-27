@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "459110577036",
+    "project_id": "memoapplication-e18d7",
+    "storage_bucket": "memoapplication-e18d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459110577036:android:32e7b3a6c6b7c3e2a4dca9",
+        "android_client_info": {
+          "package_name": "com.lion.boardproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS5oPJveBQ3FTfwxgMIvbC28OL6vs3wdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
